@@ -3,62 +3,54 @@
 
     <div class="form-group">
       <label>Name on Card</label>
-      <input class="form-control" type="text" [ngClass]="{   
-              'is-invalid': submitted &&  paymentForm.controls.name.errors
-      }"
-        formControlName="name" placeholder="John Krane">
-      <div *ngIf=" submitted && paymentForm.controls.name.errors" class="alert alert-danger">Invalid Cardholder
+      <input class="form-control" type="text" [ngClass]="{'is-invalid': submitted &&  paymentForm.controls['nameOnCard'].invalid}"
+        formControlName="nameOnCard" placeholder="John Krane">
+      <div *ngIf=" submitted && paymentForm.controls['nameOnCard'].invalid" class="alert alert-danger">Invalid Cardholder
         Name.</div>
     </div>
 
     <div class="form-group">
       <label>Card Number</label>
-      <input class="form-control" type="text" [ngClass]="{   
-              'is-invalid': submitted && paymentForm.controls.cardNumber.errors
-      }"
+      <input class="form-control" type="text" [ngClass]="{'is-invalid': submitted && paymentForm.controls['cardNumber'].invalid}"
         formControlName="cardNumber" placeholder="1234123412341234">
-      <div *ngIf=" submitted && paymentForm.controls.cardNumber.errors" class="alert alert-danger">Invalid Card
+      <div *ngIf=" submitted && paymentForm.controls['cardNumber'].invalid" class="alert alert-danger">Invalid Card
         Number.</div>
     </div>
+
     <div class="form-group date-expiry-cvv">
       <div class="row date-expiry-cvv">
         <div class="form-group expiry col-xs-6">
           <label>Date of Expiration</label>
           <div class="row month-year">
             <div class="col-xs-6">
-              <input class="form-control month" type="text" [ngClass]="{   
-              'is-invalid': submitted &&  paymentForm.controls.expirationMonth.errors
-      }"
+              <input class="form-control month" type="text" [ngClass]="{'is-invalid': submitted &&  paymentForm.controls['expirationMonth'].invalid}"
                 formControlName="expirationMonth" placeholder="07">
 
             </div>
             <div class="col-xs-6">
-              <input class="form-control year " type="text" [ngClass]="{   
-              'is-invalid': submitted &&  paymentForm.controls.expirationYear.errors
-      }"
+              <input class="form-control year " type="text" [ngClass]="{'is-invalid': submitted &&  paymentForm.controls['expirationYear'].invalid}"
                 formControlName="expirationYear" placeholder="2017">
             </div>
           </div>
-          <div *ngIf="submitted && (paymentForm.controls.expirationMonth.errors || paymentForm.controls.expirationYear.errors) "
+          <div *ngIf="submitted && (paymentForm.controls['expirationMonth'].invalid || paymentForm.controls['expirationYear'].invalid) "
             class="alert alert-danger">Invalid Date of Expiration.</div>
         </div>
         <div class="form-group cvc col-xs-6">
           <label>CVV/CVC</label>
-          <input class="form-control" type="text" [ngClass]="{   
-              'is-invalid': submitted &&  paymentForm.controls.cvvCvcNumber.errors
-      }"
-            formControlName="cvvCvcNumber" placeholder="123">
-          <div *ngIf=" submitted && paymentForm.controls.cvvCvcNumber.errors" class="alert alert-danger">Invalid
+          <input class="form-control" type="text" [ngClass]="{'is-invalid': submitted &&  paymentForm.controls['cvv'].invalid}"
+            formControlName="cvv" placeholder="123">
+          <div *ngIf=" submitted && paymentForm.controls['cvv'].invalid" class="alert alert-danger">Invalid
             CVV
             / CVC
             Number.</div>
         </div>
       </div>
-
     </div>
+
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
+
     <h3 class="center-block text-center">{{displayMessage}}</h3>
   </form>
 </div>
