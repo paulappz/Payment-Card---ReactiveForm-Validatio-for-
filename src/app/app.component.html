@@ -39,7 +39,7 @@
                 formControlName="expirationYear" placeholder="2017">
             </div>
           </div>
-          <div *ngIf="submitted && paymentForm.controls.expirationMonth.errors && paymentForm.controls.expirationYear.errors "
+          <div *ngIf="submitted && (paymentForm.controls.expirationMonth.errors || paymentForm.controls.expirationYear.errors) "
             class="alert alert-danger">Invalid Date of Expiration.</div>
         </div>
         <div class="form-group cvc col-xs-6">
